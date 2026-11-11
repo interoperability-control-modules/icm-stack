@@ -5,65 +5,65 @@ volttron_point_name,address,data_type,table,writable,data_source,units,transform
 1_Vr,40044,string[16],holding,FALSE,poll_once,,,1_Vr,1.2.3,Version
 1_SN,40052,string[32],holding,FALSE,poll_once,,,1_SN,sn-123456789,Serial Number
 1_DA,40068,UINT16,holding,TRUE,poll_once,,,1_DA,1,Device Address
-701_ACType,40072,UINT16,holding,FALSE,poll_once,,,701_ACType,3,AC Wiring Type
-701_St,40073,UINT16,holding,FALSE,poll_once,,,701_St,2,Operating State
-701_InvSt,40074,UINT16,holding,FALSE,poll_once,,,701_InvSt,,Inverter State
-701_ConnSt,40075,UINT16,holding,FALSE,poll_once,,,701_ConnSt,,Grid Connection State
-701_Alrm,40076,UINT32,holding,FALSE,poll_once,,,701_Alrm,0,Alarm Bitfield
-701_DERMode,40078,UINT32,holding,FALSE,poll_once,,,701_DERMode,,DER Operational Characteristics
-701_W,40080,INT16,holding,FALSE,poll_once,W,,701_W,9800,Active Power
-701_VA,40081,INT16,holding,FALSE,poll_once,VA,,701_VA,10000,Apparent Power
-701_Var,40082,INT16,holding,FALSE,poll_once,Var,,701_Var,200,Reactive Power
-701_PF,40083,INT16,holding,FALSE,poll_once,,,701_PF,985,Power Factor
-701_A,40084,INT16,holding,FALSE,poll_once,A,,701_A,411,Total AC Current
-701_LLV,40085,UINT16,holding,FALSE,poll_once,V,,701_LLV,2400,Voltage LL
-701_LNV,40086,UINT16,holding,FALSE,poll_once,V,,701_LNV,2400,Voltage LN
-701_Hz,40087,UINT32,holding,FALSE,poll_once,Hz,,701_Hz,60010,Frequency
-701_TotWhInj,40089,UINT64,holding,FALSE,poll_once,Wh,,701_TotWhInj,150,Total Energy Injected
-701_TotWhAbs,40093,UINT64,holding,FALSE,poll_once,Wh,,701_TotWhAbs,0,Total Energy Absorbed
-701_TotVarhInj,40097,UINT64,holding,FALSE,poll_once,Varh,,701_TotVarhInj,9,Total Reactive Energy Inj
-701_TotVarhAbs,40101,UINT64,holding,FALSE,poll_once,Varh,,701_TotVarhAbs,0,Total Reactive Energy Abs
-701_TmpAmb,40105,INT16,holding,FALSE,poll_once,C,,701_TmpAmb,450,Ambient Temperature
-701_TmpCab,40106,INT16,holding,FALSE,poll_once,C,,701_TmpCab,550,Cabinet Temperature
-701_TmpSnk,40107,INT16,holding,FALSE,poll_once,C,,701_TmpSnk,650,Heat Sink Temperature
-701_TmpTrns,40108,INT16,holding,FALSE,poll_once,C,,701_TmpTrns,500,Transformer Temperature
-701_TmpSw,40109,INT16,holding,FALSE,poll_once,C,,701_TmpSw,400,IGBT/MOSFET Temperature
-701_TmpOt,40110,INT16,holding,FALSE,poll_once,C,,701_TmpOt,420,Other Temperature
-701_WL1,40111,INT16,holding,FALSE,poll_once,W,,701_WL1,3200,Watts L1
-701_VAL1,40112,INT16,holding,FALSE,poll_once,VA,,701_VAL1,3333,VA L1
-701_VarL1,40113,INT16,holding,FALSE,poll_once,Var,,701_VarL1,80,Var L1
-701_PFL1,40114,INT16,holding,FALSE,poll_once,,,701_PFL1,984,PF L1
-701_AL1,40115,INT16,holding,FALSE,poll_once,A,,701_AL1,137,Amps L1
-701_VL1L2,40116,UINT16,holding,FALSE,poll_once,V,,701_VL1L2,120,Phase Voltage L1-L2
-701_VL1,40117,UINT16,holding,FALSE,poll_once,V,,701_VL1,120,Phase Voltage L1-N
-701_TotWhInjL1,40118,UINT64,holding,FALSE,poll_once,Wh,,701_TotWhInjL1,49,Total Watt-Hours Inj L1
-701_TotWhAbsL1,40122,UINT64,holding,FALSE,poll_once,Wh,,701_TotWhAbsL1,0,Total Watt-Hours Abs L1
-701_TotVarhInjL1,40126,UINT64,holding,FALSE,poll_once,Varh,,701_TotVarhInjL1,2,Total Var-Hours Inj L1
-701_TotVarhAbsL1,40130,UINT64,holding,FALSE,poll_once,Varh,,701_TotVarhAbsL1,0,Total Var-Hours Abs L1
-701_WL2,40134,INT16,holding,FALSE,poll_once,W,,701_WL2,3300,Watts L2
-701_VAL2,40135,INT16,holding,FALSE,poll_once,VA,,701_VAL2,3333,VA L2
-701_VarL2,40136,INT16,holding,FALSE,poll_once,Var,,701_VarL2,80,Var L2
-701_PFL2,40137,INT16,holding,FALSE,poll_once,,,701_PFL2,986,PF L2
-701_AL2,40138,INT16,holding,FALSE,poll_once,A,,701_AL2,136,Amps L2
-701_VL2L3,40139,UINT16,holding,FALSE,poll_once,V,,701_VL2L3,120,Phase Voltage L2-L3
-701_VL2,40140,UINT16,holding,FALSE,poll_once,V,,701_VL2,120,Phase Voltage L2-N
-701_TotWhInjL2,40141,UINT64,holding,FALSE,poll_once,Wh,,701_TotWhInjL2,50,Total Watt-Hours Inj L2
-701_TotWhAbsL2,40145,UINT64,holding,FALSE,poll_once,Wh,,701_TotWhAbsL2,0,Total Watt-Hours Abs L2
-701_TotVarhInjL2,40149,UINT64,holding,FALSE,poll_once,Varh,,701_TotVarhInjL2,3,Total Var-Hours Inj L2
-701_TotVarhAbsL2,40153,UINT64,holding,FALSE,poll_once,Varh,,701_TotVarhAbsL2,0,Total Var-Hours Abs L2
-701_WL3,40157,INT16,holding,FALSE,poll_once,W,,701_WL3,3500,Watts L3
-701_VAL3,40158,INT16,holding,FALSE,poll_once,VA,,701_VAL3,3333,VA L3
-701_VarL3,40159,INT16,holding,FALSE,poll_once,Var,,701_VarL3,40,Var L3
-701_PFL3,40160,INT16,holding,FALSE,poll_once,,,701_PFL3,987,PF L3
-701_AL3,40161,INT16,holding,FALSE,poll_once,A,,701_AL3,138,Amps L3
-701_VL3L1,40162,UINT16,holding,FALSE,poll_once,V,,701_VL3L1,120,Phase Voltage L3-L1
-701_VL3,40163,UINT16,holding,FALSE,poll_once,V,,701_VL3,,Phase Voltage L3-N
-701_TotWhInjL3,40164,UINT64,holding,FALSE,poll_once,Wh,,701_TotWhInjL3,51,Total Watt-Hours Inj L3
-701_TotWhAbsL3,40168,UINT64,holding,FALSE,poll_once,Wh,,701_TotWhAbsL3,0,Total Watt-Hours Abs L3
-701_TotVarhInjL3,40172,UINT64,holding,FALSE,poll_once,Varh,,701_TotVarhInjL3,4,Total Var-Hours Inj L3
-701_TotVarhAbsL3,40176,UINT64,holding,FALSE,poll_once,Varh,,701_TotVarhAbsL3,0,Total Var-Hours Abs L3
-701_ThrotPct,40180,UINT16,holding,FALSE,poll_once,Pct,,701_ThrotPct,,Throttling In Pct
-701_ThrotSrc,40181,UINT32,holding,FALSE,poll_once,,,701_ThrotSrc,,Throttle Source Information
+701_ACType,40072,UINT16,holding,FALSE,short_poll,,,701_ACType,3,AC Wiring Type
+701_St,40073,UINT16,holding,FALSE,short_poll,,,701_St,2,Operating State
+701_InvSt,40074,UINT16,holding,FALSE,short_poll,,,701_InvSt,,Inverter State
+701_ConnSt,40075,UINT16,holding,FALSE,short_poll,,,701_ConnSt,,Grid Connection State
+701_Alrm,40076,UINT32,holding,FALSE,short_poll,,,701_Alrm,0,Alarm Bitfield
+701_DERMode,40078,UINT32,holding,FALSE,short_poll,,,701_DERMode,,DER Operational Characteristics
+701_W,40080,INT16,holding,FALSE,short_poll,W,,701_W,9800,Active Power
+701_VA,40081,INT16,holding,FALSE,short_poll,VA,,701_VA,10000,Apparent Power
+701_Var,40082,INT16,holding,FALSE,short_poll,Var,,701_Var,200,Reactive Power
+701_PF,40083,INT16,holding,FALSE,short_poll,,,701_PF,985,Power Factor
+701_A,40084,INT16,holding,FALSE,short_poll,A,,701_A,411,Total AC Current
+701_LLV,40085,UINT16,holding,FALSE,short_poll,V,,701_LLV,2400,Voltage LL
+701_LNV,40086,UINT16,holding,FALSE,short_poll,V,,701_LNV,2400,Voltage LN
+701_Hz,40087,UINT32,holding,FALSE,short_poll,Hz,,701_Hz,60010,Frequency
+701_TotWhInj,40089,UINT64,holding,FALSE,short_poll,Wh,,701_TotWhInj,150,Total Energy Injected
+701_TotWhAbs,40093,UINT64,holding,FALSE,short_poll,Wh,,701_TotWhAbs,0,Total Energy Absorbed
+701_TotVarhInj,40097,UINT64,holding,FALSE,short_poll,Varh,,701_TotVarhInj,9,Total Reactive Energy Inj
+701_TotVarhAbs,40101,UINT64,holding,FALSE,short_poll,Varh,,701_TotVarhAbs,0,Total Reactive Energy Abs
+701_TmpAmb,40105,INT16,holding,FALSE,short_poll,C,,701_TmpAmb,450,Ambient Temperature
+701_TmpCab,40106,INT16,holding,FALSE,short_poll,C,,701_TmpCab,550,Cabinet Temperature
+701_TmpSnk,40107,INT16,holding,FALSE,short_poll,C,,701_TmpSnk,650,Heat Sink Temperature
+701_TmpTrns,40108,INT16,holding,FALSE,short_poll,C,,701_TmpTrns,500,Transformer Temperature
+701_TmpSw,40109,INT16,holding,FALSE,short_poll,C,,701_TmpSw,400,IGBT/MOSFET Temperature
+701_TmpOt,40110,INT16,holding,FALSE,short_poll,C,,701_TmpOt,420,Other Temperature
+701_WL1,40111,INT16,holding,FALSE,short_poll,W,,701_WL1,3200,Watts L1
+701_VAL1,40112,INT16,holding,FALSE,short_poll,VA,,701_VAL1,3333,VA L1
+701_VarL1,40113,INT16,holding,FALSE,short_poll,Var,,701_VarL1,80,Var L1
+701_PFL1,40114,INT16,holding,FALSE,short_poll,,,701_PFL1,984,PF L1
+701_AL1,40115,INT16,holding,FALSE,short_poll,A,,701_AL1,137,Amps L1
+701_VL1L2,40116,UINT16,holding,FALSE,short_poll,V,,701_VL1L2,120,Phase Voltage L1-L2
+701_VL1,40117,UINT16,holding,FALSE,short_poll,V,,701_VL1,120,Phase Voltage L1-N
+701_TotWhInjL1,40118,UINT64,holding,FALSE,short_poll,Wh,,701_TotWhInjL1,49,Total Watt-Hours Inj L1
+701_TotWhAbsL1,40122,UINT64,holding,FALSE,short_poll,Wh,,701_TotWhAbsL1,0,Total Watt-Hours Abs L1
+701_TotVarhInjL1,40126,UINT64,holding,FALSE,short_poll,Varh,,701_TotVarhInjL1,2,Total Var-Hours Inj L1
+701_TotVarhAbsL1,40130,UINT64,holding,FALSE,short_poll,Varh,,701_TotVarhAbsL1,0,Total Var-Hours Abs L1
+701_WL2,40134,INT16,holding,FALSE,short_poll,W,,701_WL2,3300,Watts L2
+701_VAL2,40135,INT16,holding,FALSE,short_poll,VA,,701_VAL2,3333,VA L2
+701_VarL2,40136,INT16,holding,FALSE,short_poll,Var,,701_VarL2,80,Var L2
+701_PFL2,40137,INT16,holding,FALSE,short_poll,,,701_PFL2,986,PF L2
+701_AL2,40138,INT16,holding,FALSE,short_poll,A,,701_AL2,136,Amps L2
+701_VL2L3,40139,UINT16,holding,FALSE,short_poll,V,,701_VL2L3,120,Phase Voltage L2-L3
+701_VL2,40140,UINT16,holding,FALSE,short_poll,V,,701_VL2,120,Phase Voltage L2-N
+701_TotWhInjL2,40141,UINT64,holding,FALSE,short_poll,Wh,,701_TotWhInjL2,50,Total Watt-Hours Inj L2
+701_TotWhAbsL2,40145,UINT64,holding,FALSE,short_poll,Wh,,701_TotWhAbsL2,0,Total Watt-Hours Abs L2
+701_TotVarhInjL2,40149,UINT64,holding,FALSE,short_poll,Varh,,701_TotVarhInjL2,3,Total Var-Hours Inj L2
+701_TotVarhAbsL2,40153,UINT64,holding,FALSE,short_poll,Varh,,701_TotVarhAbsL2,0,Total Var-Hours Abs L2
+701_WL3,40157,INT16,holding,FALSE,short_poll,W,,701_WL3,3500,Watts L3
+701_VAL3,40158,INT16,holding,FALSE,short_poll,VA,,701_VAL3,3333,VA L3
+701_VarL3,40159,INT16,holding,FALSE,short_poll,Var,,701_VarL3,40,Var L3
+701_PFL3,40160,INT16,holding,FALSE,short_poll,,,701_PFL3,987,PF L3
+701_AL3,40161,INT16,holding,FALSE,short_poll,A,,701_AL3,138,Amps L3
+701_VL3L1,40162,UINT16,holding,FALSE,short_poll,V,,701_VL3L1,120,Phase Voltage L3-L1
+701_VL3,40163,UINT16,holding,FALSE,short_poll,V,,701_VL3,,Phase Voltage L3-N
+701_TotWhInjL3,40164,UINT64,holding,FALSE,short_poll,Wh,,701_TotWhInjL3,51,Total Watt-Hours Inj L3
+701_TotWhAbsL3,40168,UINT64,holding,FALSE,short_poll,Wh,,701_TotWhAbsL3,0,Total Watt-Hours Abs L3
+701_TotVarhInjL3,40172,UINT64,holding,FALSE,short_poll,Varh,,701_TotVarhInjL3,4,Total Var-Hours Inj L3
+701_TotVarhAbsL3,40176,UINT64,holding,FALSE,short_poll,Varh,,701_TotVarhAbsL3,0,Total Var-Hours Abs L3
+701_ThrotPct,40180,UINT16,holding,FALSE,short_poll,Pct,,701_ThrotPct,,Throttling In Pct
+701_ThrotSrc,40181,UINT32,holding,FALSE,short_poll,,,701_ThrotSrc,,Throttle Source Information
 701_A_SF,40183,INT16,holding,FALSE,poll_once,,,701_A_SF,-1,Current Scale Factor
 701_V_SF,40184,INT16,holding,FALSE,poll_once,,,701_V_SF,-1,Voltage Scale Factor
 701_Hz_SF,40185,INT16,holding,FALSE,poll_once,,,701_Hz_SF,-3,Frequency Scale Factor
@@ -74,49 +74,49 @@ volttron_point_name,address,data_type,table,writable,data_source,units,transform
 701_TotWh_SF,40190,INT16,holding,FALSE,poll_once,,,701_TotWh_SF,3,Active Energy Scale Factor
 701_TotVarh_SF,40191,INT16,holding,FALSE,poll_once,,,701_TotVarh_SF,3,Reactive Energy Scale Factor
 701_Tmp_SF,40192,INT16,holding,FALSE,poll_once,,,701_Tmp_SF,-1,Temperature Scale Factor
-701_MnAlrmInfo,40193,string[64],holding,FALSE,poll_once,,,701_MnAlrmInfo,,Manufacturer Alarm Info
-702_WMaxRtg,40227,UINT16,holding,FALSE,short_poll,W,,702_WMaxRtg,10000,Active Power Max Rating
-702_WOvrExtRtg,40228,UINT16,holding,FALSE,short_poll,W,,702_WOvrExtRtg,10000,Active Power (Over-Excited) Rating
-702_WOvrExtRtgPF,40229,UINT16,holding,FALSE,short_poll,,,702_WOvrExtRtgPF,1000,Specified Over-Excited PF
-702_WUndExtRtg,40230,UINT16,holding,FALSE,short_poll,W,,702_WUndExtRtg,10000,Active Power (Under-Excited) Rating
-702_WUndExtRtgPF,40231,UINT16,holding,FALSE,short_poll,,,702_WUndExtRtgPF,1000,Specified Under-Excited PF
-702_VAMaxRtg,40232,UINT16,holding,FALSE,short_poll,VA,,702_VAMaxRtg,11000,Apparent Power Max Rating
-702_VarMaxInjRtg,40233,UINT16,holding,FALSE,short_poll,Var,,702_VarMaxInjRtg,2500,Reactive Power Injected Rating
-702_VarMaxAbsRtg,40234,UINT16,holding,FALSE,short_poll,Var,,702_VarMaxAbsRtg,0,Reactive Power Absorbed Rating
-702_WChaRteMaxRtg,40235,UINT16,holding,FALSE,short_poll,W,,702_WChaRteMaxRtg,0,Charge Rate Max Rating
-702_WDisChaRteMaxRtg,40236,UINT16,holding,FALSE,short_poll,W,,702_WDisChaRteMaxRtg,0,Discharge Rate Max Rating
-702_VAChaRteMaxRtg,40237,UINT16,holding,FALSE,short_poll,VA,,702_VAChaRteMaxRtg,0,Charge Rate Max VA Rating
-702_VADisChaRteMaxRtg,40238,UINT16,holding,FALSE,short_poll,VA,,702_VADisChaRteMaxRtg,0,Discharge Rate Max VA Rating
-702_VNomRtg,40239,UINT16,holding,FALSE,short_poll,V,,702_VNomRtg,240,AC Voltage Nominal Rating
-702_VMaxRtg,40240,UINT16,holding,FALSE,short_poll,V,,702_VMaxRtg,270,AC Voltage Max Rating
-702_VMinRtg,40241,UINT16,holding,FALSE,short_poll,V,,702_VMinRtg,210,AC Voltage Min Rating
-702_AMaxRtg,40242,UINT16,holding,FALSE,short_poll,A,,702_AMaxRtg,50,AC Current Max Rating
-702_PFOvrExtRtg,40243,UINT16,holding,FALSE,short_poll,,,702_PFOvrExtRtg,850,PF Over-Excited Rating (Unused)
-702_PFUndExtRtg,40244,UINT16,holding,FALSE,short_poll,,,702_PFUndExtRtg,850,PF Under-Excited Rating (Unused)
-702_ReactSusceptRtg,40245,UINT16,holding,FALSE,short_poll,S,,702_ReactSusceptRtg,,Reactive Susceptance
-702_NorOpCatRtg,40246,UINT16,holding,FALSE,short_poll,,,702_NorOpCatRtg,2,Normal Operating Category
-702_AbnOpCatRtg,40247,UINT16,holding,FALSE,short_poll,,,702_AbnOpCatRtg,3,Abnormal Operating Category
-702_CtrlModes,40248,UINT32,holding,FALSE,short_poll,,,702_CtrlModes,,Supported Control Modes
-702_IntIslandCatRtg,40250,UINT16,holding,FALSE,short_poll,,,702_IntIslandCatRtg,,Intentional Island Categories
-702_WMax,40251,UINT16,holding,TRUE,short_poll,W,,702_WMax,10000,Active Power Max Setting
-702_WMaxOvrExt,40252,UINT16,holding,TRUE,short_poll,W,,702_WMaxOvrExt,,Active Power (Over-Excited) Setting
-702_WOvrExtPF,40253,UINT16,holding,TRUE,short_poll,,,702_WOvrExtPF,,Specified Over-Excited PF
-702_WMaxUndExt,40254,UINT16,holding,TRUE,short_poll,W,,702_WMaxUndExt,,Active Power (Under-Excited) Setting
-702_WUndExtPF,40255,UINT16,holding,TRUE,short_poll,,,702_WUndExtPF,,Specified Under-Excited PF
-702_VAMax,40256,UINT16,holding,TRUE,short_poll,VA,,702_VAMax,10000,Apparent Power Max Setting
-702_VarMaxInj,40257,UINT16,holding,TRUE,short_poll,Var,,702_VarMaxInj,,Reactive Power Injected Setting
-702_VarMaxAbs,40258,UINT16,holding,TRUE,short_poll,Var,,702_VarMaxAbs,,Reactive Power Absorbed Setting
-702_WChaRteMax,40259,UINT16,holding,TRUE,short_poll,W,,702_WChaRteMax,,Charge Rate Max Setting
-702_WDisChaRteMax,40260,UINT16,holding,TRUE,short_poll,W,,702_WDisChaRteMax,,Discharge Rate Max Setting
-702_VAChaRteMax,40261,UINT16,holding,TRUE,short_poll,VA,,702_VAChaRteMax,,Charge Rate Max VA Setting
-702_VADisChaRteMax,40262,UINT16,holding,TRUE,short_poll,VA,,702_VADisChaRteMax,,Discharge Rate Max VA Setting
-702_VNom,40263,UINT16,holding,TRUE,short_poll,V,,702_VNom,,Nominal AC Voltage Setting
-702_VMax,40264,UINT16,holding,TRUE,short_poll,V,,702_VMax,,AC Voltage Max Setting
-702_VMin,40265,UINT16,holding,TRUE,short_poll,V,,702_VMin,,AC Voltage Min Setting
-702_AMax,40266,UINT16,holding,TRUE,short_poll,A,,702_AMax,,AC Current Max Setting
-702_PFOvrExt,40267,UINT16,holding,TRUE,short_poll,,,702_PFOvrExt,,PF Over-Excited Setting (Unused)
-702_PFUndExt,40268,UINT16,holding,TRUE,short_poll,,,702_PFUndExt,,PF Under-Excited Setting (Unused)
-702_IntIslandCat,40269,UINT16,holding,TRUE,short_poll,,,702_IntIslandCat,,Intentional Island Categories
+701_MnAlrmInfo,40193,string[64],holding,FALSE,short_poll,,,701_MnAlrmInfo,,Manufacturer Alarm Info
+702_WMaxRtg,40227,UINT16,holding,FALSE,poll_once,W,,702_WMaxRtg,10000,Active Power Max Rating
+702_WOvrExtRtg,40228,UINT16,holding,FALSE,poll_once,W,,702_WOvrExtRtg,10000,Active Power (Over-Excited) Rating
+702_WOvrExtRtgPF,40229,UINT16,holding,FALSE,poll_once,,,702_WOvrExtRtgPF,1000,Specified Over-Excited PF
+702_WUndExtRtg,40230,UINT16,holding,FALSE,poll_once,W,,702_WUndExtRtg,10000,Active Power (Under-Excited) Rating
+702_WUndExtRtgPF,40231,UINT16,holding,FALSE,poll_once,,,702_WUndExtRtgPF,1000,Specified Under-Excited PF
+702_VAMaxRtg,40232,UINT16,holding,FALSE,poll_once,VA,,702_VAMaxRtg,11000,Apparent Power Max Rating
+702_VarMaxInjRtg,40233,UINT16,holding,FALSE,poll_once,Var,,702_VarMaxInjRtg,2500,Reactive Power Injected Rating
+702_VarMaxAbsRtg,40234,UINT16,holding,FALSE,poll_once,Var,,702_VarMaxAbsRtg,0,Reactive Power Absorbed Rating
+702_WChaRteMaxRtg,40235,UINT16,holding,FALSE,poll_once,W,,702_WChaRteMaxRtg,0,Charge Rate Max Rating
+702_WDisChaRteMaxRtg,40236,UINT16,holding,FALSE,poll_once,W,,702_WDisChaRteMaxRtg,0,Discharge Rate Max Rating
+702_VAChaRteMaxRtg,40237,UINT16,holding,FALSE,poll_once,VA,,702_VAChaRteMaxRtg,0,Charge Rate Max VA Rating
+702_VADisChaRteMaxRtg,40238,UINT16,holding,FALSE,poll_once,VA,,702_VADisChaRteMaxRtg,0,Discharge Rate Max VA Rating
+702_VNomRtg,40239,UINT16,holding,FALSE,poll_once,V,,702_VNomRtg,240,AC Voltage Nominal Rating
+702_VMaxRtg,40240,UINT16,holding,FALSE,poll_once,V,,702_VMaxRtg,270,AC Voltage Max Rating
+702_VMinRtg,40241,UINT16,holding,FALSE,poll_once,V,,702_VMinRtg,210,AC Voltage Min Rating
+702_AMaxRtg,40242,UINT16,holding,FALSE,poll_once,A,,702_AMaxRtg,50,AC Current Max Rating
+702_PFOvrExtRtg,40243,UINT16,holding,FALSE,poll_once,,,702_PFOvrExtRtg,850,PF Over-Excited Rating (Unused)
+702_PFUndExtRtg,40244,UINT16,holding,FALSE,poll_once,,,702_PFUndExtRtg,850,PF Under-Excited Rating (Unused)
+702_ReactSusceptRtg,40245,UINT16,holding,FALSE,poll_once,S,,702_ReactSusceptRtg,,Reactive Susceptance
+702_NorOpCatRtg,40246,UINT16,holding,FALSE,poll_once,,,702_NorOpCatRtg,2,Normal Operating Category
+702_AbnOpCatRtg,40247,UINT16,holding,FALSE,poll_once,,,702_AbnOpCatRtg,3,Abnormal Operating Category
+702_CtrlModes,40248,UINT32,holding,FALSE,poll_once,,,702_CtrlModes,,Supported Control Modes
+702_IntIslandCatRtg,40250,UINT16,holding,FALSE,poll_once,,,702_IntIslandCatRtg,,Intentional Island Categories
+702_WMax,40251,UINT16,holding,TRUE,poll_once,W,,702_WMax,10000,Active Power Max Setting
+702_WMaxOvrExt,40252,UINT16,holding,TRUE,poll_once,W,,702_WMaxOvrExt,,Active Power (Over-Excited) Setting
+702_WOvrExtPF,40253,UINT16,holding,TRUE,poll_once,,,702_WOvrExtPF,,Specified Over-Excited PF
+702_WMaxUndExt,40254,UINT16,holding,TRUE,poll_once,W,,702_WMaxUndExt,,Active Power (Under-Excited) Setting
+702_WUndExtPF,40255,UINT16,holding,TRUE,poll_once,,,702_WUndExtPF,,Specified Under-Excited PF
+702_VAMax,40256,UINT16,holding,TRUE,poll_once,VA,,702_VAMax,10000,Apparent Power Max Setting
+702_VarMaxInj,40257,UINT16,holding,TRUE,poll_once,Var,,702_VarMaxInj,,Reactive Power Injected Setting
+702_VarMaxAbs,40258,UINT16,holding,TRUE,poll_once,Var,,702_VarMaxAbs,,Reactive Power Absorbed Setting
+702_WChaRteMax,40259,UINT16,holding,TRUE,poll_once,W,,702_WChaRteMax,,Charge Rate Max Setting
+702_WDisChaRteMax,40260,UINT16,holding,TRUE,poll_once,W,,702_WDisChaRteMax,,Discharge Rate Max Setting
+702_VAChaRteMax,40261,UINT16,holding,TRUE,poll_once,VA,,702_VAChaRteMax,,Charge Rate Max VA Setting
+702_VADisChaRteMax,40262,UINT16,holding,TRUE,poll_once,VA,,702_VADisChaRteMax,,Discharge Rate Max VA Setting
+702_VNom,40263,UINT16,holding,TRUE,poll_once,V,,702_VNom,,Nominal AC Voltage Setting
+702_VMax,40264,UINT16,holding,TRUE,poll_once,V,,702_VMax,,AC Voltage Max Setting
+702_VMin,40265,UINT16,holding,TRUE,poll_once,V,,702_VMin,,AC Voltage Min Setting
+702_AMax,40266,UINT16,holding,TRUE,poll_once,A,,702_AMax,,AC Current Max Setting
+702_PFOvrExt,40267,UINT16,holding,TRUE,poll_once,,,702_PFOvrExt,,PF Over-Excited Setting (Unused)
+702_PFUndExt,40268,UINT16,holding,TRUE,poll_once,,,702_PFUndExt,,PF Under-Excited Setting (Unused)
+702_IntIslandCat,40269,UINT16,holding,TRUE,poll_once,,,702_IntIslandCat,,Intentional Island Categories
 702_W_SF,40270,INT16,holding,FALSE,poll_once,,,702_W_SF,0,Active Power Scale Factor
 702_PF_SF,40271,INT16,holding,FALSE,poll_once,,,702_PF_SF,-3,Power Factor Scale Factor
 702_VA_SF,40272,INT16,holding,FALSE,poll_once,,,702_VA_SF,0,Apparent Power Scale Factor

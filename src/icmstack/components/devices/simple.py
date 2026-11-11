@@ -117,7 +117,7 @@ class OpenFmbParty(ProcessDevice):
     description = 'OpenFMB participant on the broker (publishes readings, logs what it receives)'
     module = 'openfmb_party'
     needs = ('broker',)
-    requires = (('paho.mqtt.client', 'pip install paho-mqtt'), ('interoperability.codecs.openfmb', 'pip install "interoperability-service[openfmb]"'))
+    requires = (('paho.mqtt.client', 'pip install paho-mqtt'), ('icm.resources.codecs.openfmb', 'pip install "icm-lib-resources[openfmb]"'))
     Q_FAMILY = Question('openfmb_family', 'OpenFMB profile family', default='solar', kind='choice', choices=('solar', 'ess'))
     Q_MRID = Question('openfmb_mrid', 'Device mRID in the profiles', default='7d1a2b3c-0000-4000-8000-000000000001')
     Q_INTERVAL = Question('openfmb_interval', 'Seconds between readings (0: publish nothing)', default=5, kind='float')

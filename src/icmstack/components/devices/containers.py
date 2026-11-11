@@ -265,6 +265,7 @@ class Sep2Server(Sep2Base):
         topic = a['sep2_topic'].strip('/')
         fmt = _register_device(ctx, topic, 'sep2_pv.ieee2030_5.csv', 'sep2_pv.csv', 'ieee2030_5', {
             'server_url': f'https://127.0.0.1:{a["sep2_port"]}', 'cert_path': str(c['device_cert']), 'key_path': str(c['device_key']), 'ca_path': str(c['ca']),
+            'description': 'ICM',    # what the client registers as its EndDevice description; the driver's own default names the platform
             'subscribe': True, 'notify_host': '127.0.0.1', 'notify_bind_host': '127.0.0.1', 'notify_port': int(a['sep2_notify_port']),
             'notify_cert_path': str(c['notify_cert']), 'notify_key_path': str(c['notify_key']), 'poll_rate_floor': 1, 'poll_rate_ceiling': 5,
             'response_timeout': 10}, 'sep2_pv', served=False)

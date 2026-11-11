@@ -30,7 +30,17 @@ def checkout_root(variable: str) -> Path | None:
 
 #: Libraries the agents need beyond their own package, and where their checkouts live when installing from source.
 EXTRA_CHECKOUTS = {'volttron-lib-base-driver': ('VOLTTRON_MODULAR_DRIVERS', 'base-driver'), 'volttron-lib-fake-driver': ('VOLTTRON_MODULAR_DRIVERS', 'interfaces/fake'),
-                   'protocol-proxy': ('VOLTTRON_MODULAR_PROXIES', 'protocol-proxy'), 'protocol-proxy-mqtt': ('VOLTTRON_MODULAR_PROXIES', 'mqtt')}
+                   'protocol-proxy': ('VOLTTRON_MODULAR_PROXIES', 'protocol-proxy'), 'protocol-proxy-mqtt': ('VOLTTRON_MODULAR_PROXIES', 'mqtt'),
+                   'icm-lib-transforms': ('ICM_MODULES', 'icm-utils/icm-lib-transforms'),
+                   'icm-lib-resources[volttron,openfmb]': ('ICM_MODULES', 'icm-utils/icm-lib-resources'),
+                   'icm-lib-models-sunspec': ('ICM_MODULES', 'icm-utils/icm-lib-models-sunspec'),
+                   'icm-lib-models-ieee1815-2': ('ICM_MODULES', 'icm-utils/icm-lib-models-ieee1815-2'),
+                   'icm-lib-models-ieee2030-5': ('ICM_MODULES', 'icm-utils/icm-lib-models-ieee2030-5'),
+                   'icm-lib-models-openfmb': ('ICM_MODULES', 'icm-utils/icm-lib-models-openfmb')}
+#: The two shared libraries every interoperability agent imports (the service, the Resource Bridge, the bus adapter).
+ICM_LIBS = ('icm-lib-transforms', 'icm-lib-resources[volttron,openfmb]')
+#: The standards' model packages, which the service's format universe and discovery need.
+MODEL_LIBS = ('icm-lib-models-sunspec', 'icm-lib-models-ieee1815-2', 'icm-lib-models-ieee2030-5', 'icm-lib-models-openfmb')
 
 
 @dataclass
@@ -50,11 +60,11 @@ SPECS = [
     AgentSpec('driver', 'platform.driver', 'driver', 'volttron-platform-driver', ('VOLTTRON_MODULAR_DRIVERS', 'platform-driver-agent'),
               'platform driver agent', extra_packages=('volttron-lib-base-driver', 'volttron-lib-fake-driver')),
     AgentSpec('interop', 'platform.presentation', 'interop', 'interoperability-service[discovery,openfmb]', ('ICM_MODULES', 'interoperability_service'),
-              'interoperability service agent'),
+              'interoperability service agent', extra_packages=ICM_LIBS + MODEL_LIBS),
     AgentSpec('resource-bridge', 'platform.resource_bridge', 'resource_bridge', 'volttron-resource-bridge', ('ICM_MODULES', 'resource-bridge'),
-              'Resource Bridge agent', wants=('interop', 'driver')),
+              'Resource Bridge agent', extra_packages=ICM_LIBS, wants=('interop', 'driver')),
     AgentSpec('bus-adapter', 'platform.bus_adapter', 'bus_adapter', 'volttron-message-bus-adapter', ('ICM_MODULES', 'message-bus-adapter'),
-              'message bus adapter agent', extra_packages=('protocol-proxy', 'protocol-proxy-mqtt'), wants=('broker', 'interop')),
+              'message bus adapter agent', extra_packages=ICM_LIBS + ('protocol-proxy', 'protocol-proxy-mqtt'), wants=('broker', 'interop')),
     AgentSpec('rtc', 'icm.rtc', 'rtc', 'volttron-realtime-control', ('ICM_MODULES', 'rtc_agent'), 'real-time control agent (optional)', wants=('interop',), optional=True),
     AgentSpec('scheduler', 'platform.scheduler', 'scheduler', 'volttron-scheduler', ('ICM_MODULES', 'scheduler'), 'scheduler agent (optional)', optional=True),
 ]
@@ -98,22 +108,24 @@ class Agent(Component):
     def install(self, ctx: Context) -> None:
         pip_spec, _ = self.resolve_source(ctx)
         env = env_of(ctx)
+        if ctx.profile.answers.get('agent_source') == 'checkout':
+            # From checkouts, the libraries must come from the checkouts too, and before the agent: a released copy of
+            # the base driver next to a checkout of the platform driver is a version mismatch (the driver then fails at
+            # start-up), and a library that has no release yet cannot be resolved by the agent's own install at all.
+            for package in self.spec.extra_packages:
+                variable, subdir = EXTRA_CHECKOUTS.get(package, (None, None))
+                root = checkout_root(variable) if variable else None
+                base, extras = re.split(r'(?=\[)', package, maxsplit=1) if '[' in package else (package, '')
+                if root is not None and (root / subdir).is_dir():
+                    env.pip_install([str(root / subdir) + extras], ctx.out, editable=True)
+                elif not env.has(base):
+                    ctx.out(f'{self.name}: no checkout found for {package} ({variable or "no variable"}); installing it from PyPI')
+                    env.pip_install([package], ctx.out)
         if pip_spec.startswith('-e:'):
             env.pip_install([pip_spec[3:]], ctx.out, editable=True)
         else:
             env.pip_install([pip_spec], ctx.out)
-        if ctx.profile.answers.get('agent_source') == 'checkout':
-            # From checkouts, the libraries must come from the checkouts too: a released copy of the base driver next
-            # to a checkout of the platform driver is a version mismatch (the driver then fails at start-up).
-            for package in self.spec.extra_packages:
-                variable, subdir = EXTRA_CHECKOUTS.get(package, (None, None))
-                root = checkout_root(variable) if variable else None
-                if root is not None and (root / subdir).is_dir():
-                    env.pip_install([str(root / subdir)], ctx.out, editable=True)
-                elif not env.has(re.split(r'\[', package)[0]):
-                    ctx.out(f'{self.name}: no checkout found for {package} ({variable or "no variable"}); installing it from PyPI')
-                    env.pip_install([package], ctx.out)
-        else:
+        if ctx.profile.answers.get('agent_source') != 'checkout':
             missing = [p for p in self.spec.extra_packages if not env.has(re.split(r'\[', p)[0])]
             if missing:
                 env.pip_install(missing, ctx.out)

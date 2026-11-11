@@ -1,7 +1,7 @@
 """An OpenFMB participant on an MQTT broker: publishes a reading profile at an interval with moving values and logs
 every profile it receives on a topic prefix, decoded. What a utility system or another adapter would be.
 Runnable: ``python -m icmstack.devices.openfmb_party --port 1883 --topic openfmb/solarmodule/SolarReadingProfile/<mrid>``.
-Needs paho-mqtt and the interoperability service's OpenFMB codecs (``interoperability-service[openfmb]``)."""
+Needs paho-mqtt and the OpenFMB codecs of ``icm-lib-resources[openfmb]``."""
 from __future__ import annotations
 
 import argparse
@@ -46,9 +46,9 @@ def main(argv=None) -> int:
     args = p.parse_args(argv)
     try:
         import paho.mqtt.client as mqtt
-        from interoperability.codecs.openfmb import decode, encode
+        from icm.resources.codecs.openfmb import decode, encode
     except ImportError as e:
-        print(f'missing package: {e}; pip install paho-mqtt "interoperability-service[openfmb]"', file=sys.stderr)
+        print(f'missing package: {e}; pip install paho-mqtt "icm-lib-resources[openfmb]"', file=sys.stderr)
         return 2
     profile = 'Solar' if args.family == 'solar' else 'ESS'
     topic = args.topic or f'openfmb/{args.family}module/{profile}ReadingProfile/{args.mrid}'

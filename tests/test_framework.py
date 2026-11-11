@@ -276,6 +276,25 @@ def test_extra_packages_come_from_checkouts_when_agents_do(stack, monkeypatch):
     assert f'-e {tree}/drivers/platform-driver-agent' in log and f'-e {tree}/drivers/base-driver' in log and f'-e {tree}/drivers/interfaces/fake' in log
 
 
+def test_shared_libraries_install_from_the_icm_utils_checkout_before_the_agent(stack, monkeypatch):
+    """The agents depend on icm-lib-transforms and icm-lib-resources; from checkouts those come from icm-utils, with their
+    extras, and ahead of the agent so pip never has to resolve them from PyPI."""
+    from icmstack.components.agents import Agent, SPECS
+    modules = stack['root'] / 'modules'
+    for sub in ('resource-bridge', 'icm-utils/icm-lib-transforms', 'icm-utils/icm-lib-resources'):
+        (modules / sub).mkdir(parents=True)
+    monkeypatch.setenv('ICM_MODULES', str(modules))
+    monkeypatch.setattr('icmstack.venv.PlatformEnv.has', lambda self, d: False)
+    profile = Profile('default', root=stack['root']); profile.answers.update({'venv': str(stack['venv']), 'agent_source': 'checkout'}); profile.save()
+    ctx = Context(profile, Answers(profile, yes=True, interactive=True), out=lambda s: None)
+    next(Agent(s) for s in SPECS if s.name == 'resource-bridge').install(ctx)
+    log = (stack['venv'] / 'pip.log').read_text()
+    transform, resource, agent = (log.index(f'-e {modules}/icm-utils/icm-lib-transforms'),
+                                  log.index(f'-e {modules}/icm-utils/icm-lib-resources[volttron,openfmb]'),
+                                  log.index(f'-e {modules}/resource-bridge'))
+    assert transform < agent and resource < agent
+
+
 def test_stray_platform_on_the_home_is_found_stopped_and_reported(stack):
     """A platform process nobody tracks (an orphan of a deleted profile) blocks the home; the tool finds it by its
     VOLTTRON_HOME, offers to stop it, and down stops it even with an empty state."""

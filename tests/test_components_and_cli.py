@@ -120,8 +120,8 @@ def test_sunspec_device_runs_and_answers_modbus(tmp_path):
 
 
 def test_openfmb_reading_payload_round_trips_through_the_codecs():
-    pytest.importorskip('interoperability.codecs.openfmb')
-    from interoperability.codecs.openfmb import decode, encode
+    pytest.importorskip('icm.resources.codecs.openfmb')
+    from icm.resources.codecs.openfmb import decode, encode
     from icmstack.devices.openfmb_party import DEFAULT_MRID, READING_PROTO, reading_payload
     for family in ('solar', 'ess'):
         payload = reading_payload(family, DEFAULT_MRID, w=4200.5, var=310.0, hz=60.01, phase_v=241.2)
